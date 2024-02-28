@@ -9,12 +9,12 @@ This script demonstrates how to extract individual sessions data from running th
 from speech import DataSetConfigurations
 from speech import SPEECh
 from speech import SPEEChGeneralConfiguration
-from speech import Plotting
 from speech import Scenarios
 from speech import LoadProfile
 
 import copy
 import os
+import numpy as np
 import pandas as pd
 if not os.path.isdir('IndividualSessionsOutputData'):
     os.mkdir('IndividualSessionsOutputData')
@@ -50,13 +50,17 @@ for g in range(data.ng):
             individual_session_parameters_all[key] = copy.deepcopy(individual_session_parameters[key])
 
 # Save the results:
+existing_categories = []
 for key in individual_session_parameters_all.keys():
     if individual_session_parameters_all[key] is not None:
         individual_session_parameters_all[key].to_csv('IndividualSessionsOutputData/'+key+'.csv')
+        existing_categories.append(key) # skip categories that are None in
+        # the following
         
         
 # Extract the individual load profiles, not just the session parameters
-categories = ['Home', 'MUD', 'Work', 'Other Slow', 'Other Fast']
+categories = existing_categories # ['Home', 'MUD', 'Work', 'Other Slow',
+# 'Other Fast']
 total_load_profiles = {}
 for segment in categories:
     if individual_session_parameters_all[segment] is not None:
