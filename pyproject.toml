@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "speech"
+version = "2021.0.1"
+dependencies = [
+  "matplotlib",
+]
+requires-python = ">=3.10"
+authors = [
+  {name = "Siobhan Powell", email = "spowell@ethz.ch"},
+]
+maintainers = [
+  {name = "Gustavo Cezar", email = "gcezar@stanford.edu"}
+]
+description = "Scalable Probabilistic Estimates of Electric Vehicle Charging"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["EV","charging"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Homepage = "https://github.com/slacgismo/speech"
+Documentation = "https://github.com/slacgismo/speech"
+Repository = "https://github.com/slacgismo/speech.git"
+"Bug Tracker" = "https://github.com/slacgismo/speech/issues"
+Changelog = "https://github.com/me/spam/blob/main/CHANGELOG.md"
